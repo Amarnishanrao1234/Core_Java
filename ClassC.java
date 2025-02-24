@@ -1,35 +1,26 @@
-package pack1;
+package part_3_Java;
 
-public class ClassC 
+public class ClassC
 {
-	void meth1()
+	public static void main(String[] args) throws Exception
 	{
-		ClassC obj=new ClassC();
-		System.out.println(10);
-		obj.meth2();
+		System.out.println("Implenting Object Cloning \n");
 		
-	}
-	void meth2()
-	{
-		System.out.println(20);	
-
-	}
-	void meth3()
-	{
-		int x=10;
-		ClassC obj= new ClassC();
-		obj.meth1();
-		System.out.println(x-99);
+		ClassA aobj1= new ClassA();
+		System.out.println(aobj1.x+" "+aobj1.y);//10,20
 		
-	}
-	
-	public static void main(String[] args)
-	{
-		System.out.println("start");
-		ClassC obj=new ClassC();
-		obj.meth1();
-		System.out.println("End");
+		ClassA aobj2=aobj1;
 		
+		aobj1.y=1000;
+		System.out.println(aobj1.x+" "+aobj1.y+"==>"+aobj2.y+"\n");
+		
+		ClassB bobj1=new ClassB();
+		System.out.println(bobj1.a+" "+bobj1.b);
+		
+		ClassB bobj2= bobj1.CreateClone();
+		bobj2.b=500;
+		
+		System.out.println(bobj1.a+" "+bobj1.b+"==>"+bobj2.b);
+		System.out.println(bobj2.a);
 	}
 }
-
